@@ -150,22 +150,19 @@ public class Menu {
 
         System.out.println("Please enter a password:");
         System.out.println("(Note: your password will be hidden from view but it will still be recorded)");
-        char[] password = scanner.nextLine().toCharArray();
+        String password = scanner.nextLine();
 
         // save user information to file
         if (userType.equals("1")) {
             UserFileWriter.addUser(name, email, new String(password));
         } else if (userType.equals("2")) {
-
             // get admin password
             System.out.println("Please enter the admin password:");
-            char[] adminPassword = scanner.nextLine().toCharArray();
-            String adminPasswordStr = new String(adminPassword);
-
+            String adminPasswordStr = scanner.nextLine();
             // read expected admin password from file
             String expectedAdminPassword = "";
             try (Scanner scanner2 = new Scanner(new File("data/adminP.txt"));) {
-                expectedAdminPassword = scanner.nextLine().trim();
+                expectedAdminPassword = scanner2.nextLine();
             } catch (FileNotFoundException e) {
                 System.out.println("Error: could not read admin password from file.");
                 e.printStackTrace();

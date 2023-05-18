@@ -44,6 +44,7 @@ public class AuthFileReader {
                 String password = fields[2];
                 Admin admin = new Admin(username, email, password);
                 admins.add(admin);
+                System.out.println(admin);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

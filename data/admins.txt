@@ -1,2 +1,2 @@
-n,n,n
-5,5,5
+l,l,l
+mina,mina@edu.com,lol

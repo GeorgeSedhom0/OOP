@@ -39,9 +39,19 @@ public class project {
         System.out.flush();
 
         if (!authRes.get("isLoggedIn").equals(true)) {
-            System.out.println("Someething went wrong. Please try again.");
-            scanner.close();
-            return;
+            if (choice == 1) {
+                System.out.println("Something went wrong. Please try again.");
+                scanner.close();
+            }
+            if (choice == 2) {
+                System.out.println("Registration successful. press enter to continue.");
+                scanner.nextLine();
+                return;
+            }
+            if (choice == 3) {
+                System.out.println("Goodbye!");
+                scanner.close();
+            }
         }
         boolean storeExit = false;
 

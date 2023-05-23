@@ -3,7 +3,7 @@ package Actions;
 import java.util.Scanner;
 import Defines.Cart;
 
-public class UserActions extends StoreActions {
+public class UserActions extends StoreActions implements IAction {
     private int action;
 
     public void setAction(int action) {

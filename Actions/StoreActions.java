@@ -4,21 +4,22 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class StoreActions {
+public abstract class StoreActions {
     protected static void displayBooks() {
-        // read all files from /data/books
-        // print the file names
-        // close the files
         File booksDirectory = new File("data/books/");
         File[] files = booksDirectory.listFiles();
+
+        System.out.printf("%-20s | %-20s | %-10s | %-10s%n", "Title", "Author", "Category", "Price");
+        System.out.println("-------------------------------------------------------------");
+
         for (File file : files) {
-            // print first line of the file
             try (Scanner scanner = new Scanner(file)) {
-                System.out.print(scanner.nextLine());
-                scanner.nextLine(); // skip the author
-                System.out.print(", Category " + scanner.nextLine()); // print the category
-                System.out.print(", Price: " + scanner.nextLine()); // print the price
-                System.out.println();
+                String title = scanner.nextLine();
+                String author = scanner.nextLine();
+                String category = scanner.nextLine();
+                String price = scanner.nextLine();
+
+                System.out.printf("%-20s | %-20s | %-10s | %-10s%n", title, author, category, price);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

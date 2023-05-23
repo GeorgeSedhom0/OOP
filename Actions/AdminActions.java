@@ -4,7 +4,7 @@ import java.util.Scanner;
 import Defines.Book;
 import Writers.BookFileWriter;
 
-public class AdminActions extends StoreActions {
+public class AdminActions extends StoreActions implements IAction {
     private int action;
 
     public void setAction(int action) {

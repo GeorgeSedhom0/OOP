@@ -67,7 +67,8 @@ public class Menu {
             System.out.flush();
 
             System.out.print("Enter password: ");
-            String password = scanner.nextLine();
+            char[] passwordChars = System.console().readPassword();
+            String password = new String(passwordChars);
 
             // clear the console
             System.out.print("\033[H\033[2J");
@@ -150,7 +151,8 @@ public class Menu {
 
         System.out.println("Please enter a password:");
         System.out.println("(Note: your password will be hidden from view but it will still be recorded)");
-        String password = scanner.nextLine();
+        // String password = scanner.nextLine();
+        char[] password = System.console().readPassword();
 
         // save user information to file
         if (userType.equals("1")) {
@@ -158,7 +160,10 @@ public class Menu {
         } else if (userType.equals("2")) {
             // get admin password
             System.out.println("Please enter the admin password:");
-            String adminPasswordStr = scanner.nextLine();
+            // String adminPasswordStr = scanner.nextLine();
+            char[] adminPasswordArr = System.console().readPassword();
+            String adminPasswordStr = new String(adminPasswordArr);
+
             // read expected admin password from file
             String expectedAdminPassword = "";
             try (Scanner scanner2 = new Scanner(new File("data/adminP.txt"));) {
